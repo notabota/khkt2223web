@@ -1,0 +1,46 @@
+
+<!-- include header -->
+    <%- include('include/_header') %>
+<!-- /include header -->
+
+
+    <!-- Main Site -->
+    <main id="site-main">
+        <div class="container">
+            <div class = "title">
+                <h1>BẢNG BỆNH NHÂN CHỜ ĐƯỢC DUYỆT</h1>
+            </div>
+            <div class="box-nav d-flex justify-between">
+                <a href="/add-user" class="border-shadow">
+                    <span class="text-gradient">Danh sách bệnh nhân</span>
+                    <i class="fa-solid fa-user"></i>
+                </a>
+            </div>
+
+            <!-- form handling -->
+            <form action="/" method="POST">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên</th>
+                            <th>Tuổi</th>
+                            <th>Giới tính</th>
+                            <th>Chẩn đoán</th>
+                            <th>Mức độ</th>
+                            <th>Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%- include('include/_show') %>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+<!-- /Main Site -->
+
+
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->

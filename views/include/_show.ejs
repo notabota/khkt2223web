@@ -1,0 +1,18 @@
+<% for(var i = 0; i < users.length; i++) { %>
+<tr>
+    <td><%= i + 1 %></td>
+    <td><%= users[i].ten %></td>
+    <td><%= users[i].tuoi %></td>        
+    <td><%= users[i].gioitinh %></td>
+    <td><%= users[i].chandoan %></td>
+    <td><%= users[i].mucdo%></td>
+    <td>
+        <a href="/tra-cuu?id=<%=i%>" class="btn border-shadow update">
+            <span class="text-gradient"><i class="fa-solid fa-magnifying-glass"></i></span>
+        </a>
+        <a class="btn border-shadow delete" data-id=<%= users[i]._id%> >
+            <span class="text-gradient"><i class="fa-solid fa-check"></i></span>
+        </a>
+    </td>
+</tr>
+<% } %>
