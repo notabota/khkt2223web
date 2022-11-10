@@ -71,6 +71,6 @@ app.use('/js', express.static(path.resolve(__dirname, "assets/js")))
 app.use('/', require('./server/routes/router'))
 
 // app.listen(3000, ()=> { console.log(`Server is running on http://localhost:${PORT}`)});
-http.listen(PORT, () => {
+http.listen(PORT, "127.0.0.1", () => {
     console.log(`socket io listening on port ${PORT}`);
 });
