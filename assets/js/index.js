@@ -140,12 +140,12 @@ if(window.location.pathname == "/"){
         var id = $(this).attr("data-id")
 
         var request = {
-            "url" : `http://localhost:3000/api/ds_benhnhan/${id}`,
+            "url" : `https://nodejs-khkt20222023.herokuapp.com/api/ds_benhnhan/${id}`,
             "method" : "DELETE"
         }
 
         let jsondata;    
-        var url = `http://localhost:3000/api/ds_benhnhan?id=${id}`;
+        var url = `https://nodejs-khkt20222023.herokuapp.com/api/ds_benhnhan?id=${id}`;
         async function getData(url) {
             const response = await fetch(url);
           
@@ -158,7 +158,7 @@ if(window.location.pathname == "/"){
         console.log(id)
         // jsondata = JSON.stringify(jsondata)
         var request2 = {
-            "url" : `http://localhost:3000/api/ds_dieutri/`,
+            "url" : `https://nodejs-khkt20222023.herokuapp.com/api/ds_dieutri/`,
             "method" : "POST",
             "data" : data,
             "dataType": "json"
