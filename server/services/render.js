@@ -1,9 +1,9 @@
 const axios = require('axios');
 const querystring = require('querystring');
-
+const PORT = process.env.PORT || 8080
 exports.homeRoutes = (req, res) => {
     // Make a get request to /api/users
-    axios.get('http://localhost:3000/api/ds_benhnhan')
+    axios.get(`http://localhost:${PORT}/api/ds_benhnhan`)
         .then(function(response){
             res.render('index', { users : response.data });
         })
@@ -15,7 +15,7 @@ exports.homeRoutes = (req, res) => {
 }
 
 exports.add_user = (req, res) =>{
-    axios.get('http://localhost:3000/api/ds_dieutri')
+    axios.get(`http://localhost:${PORT}/api/ds_dieutri`)
     .then(function(response){
         res.render('add_user', { users : response.data, id : req.query });
     })
@@ -26,7 +26,7 @@ exports.add_user = (req, res) =>{
 
 exports.ds_dieutri = (req, res) => {
     // Make a get request to /api/users
-    axios.get('http://localhost:3000/api/ds_dieutri')
+    axios.get(`http://localhost:${PORT}/api/ds_dieutri`)
         .then(function(response){
             res.render('index', { users : response.data });
         })
@@ -37,7 +37,7 @@ exports.ds_dieutri = (req, res) => {
 
 exports.tra_cuu = (req, res) =>{
     console.log(req.query);
-    axios.get('http://localhost:3000/api/ds_benhnhan')
+    axios.get(`http://localhost:${PORT}/api/ds_benhnhan`)
     .then(function(response){
         res.render('tra_cuu', { users : response.data, id : req.query });
         console.log(response.data);
@@ -49,7 +49,7 @@ exports.tra_cuu = (req, res) =>{
 
 exports.tra_cuu2 = (req, res) =>{
     console.log(req.query);
-    axios.get('http://localhost:3000/api/ds_dieutri')
+    axios.get(`http://localhost:${PORT}/api/ds_dieutri`)
     .then(function(response){
         res.render('tra_cuu', { users : response.data, id : req.query });
         console.log(response.data);
