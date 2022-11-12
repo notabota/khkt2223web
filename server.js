@@ -9,6 +9,7 @@ const cors = require('cors');
 const axios = require('axios');
 const Io = require('socket.io')
 const http = require('http').createServer(app);
+const PORT = process.env.PORT || 3000
 const {
     Server
 } = require('socket.io');
@@ -28,7 +29,7 @@ io.on('connection', (socket) => {
     )
     socket.on('res_ans', data => { 
         console.log(data); 
-        axios.post('http://localhost:3000/api/ds_benhnhan/', 
+        axios.post(`http://localhost:${PORT}/api/ds_benhnhan/`, 
         {
             ten: `Bao`,
             tuoi: `17`,
@@ -47,7 +48,7 @@ app.get('/nhap', (req, res) => {
 app.use(cors());
 
 dotenv.config( { path : 'config.env'} )
-const PORT = process.env.PORT || 3000
+
 // log requests
 app.use(morgan('tiny'));
 // app.use(express.json());
