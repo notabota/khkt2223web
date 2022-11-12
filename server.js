@@ -47,7 +47,7 @@ app.get('/nhap', (req, res) => {
 app.use(cors());
 
 dotenv.config( { path : 'config.env'} )
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 3000
 // log requests
 app.use(morgan('tiny'));
 // app.use(express.json());
@@ -71,6 +71,6 @@ app.use('/js', express.static(path.resolve(__dirname, "assets/js")))
 app.use('/', require('./server/routes/router'))
 
 // app.listen(3000, ()=> { console.log(`Server is running on http://localhost:${PORT}`)});
-http.listen(PORT, "127.0.0.1", () => {
+http.listen(PORT, () => {
     console.log(`socket io listening on port ${PORT}`);
 });
