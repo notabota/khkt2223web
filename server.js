@@ -31,14 +31,14 @@ io.on('connection', (socket) => {
         console.log(data); 
         if (data < 50) {
             t1 = "Mắc bệnh";
-            t2 = "Nặng"
+            t2 = "Nặng";
         } else if (data >= 50 && data < 70){
             t1 = "Mắc bệnh";
-            t2 = "Nhẹ"
+            t2 = "Nhẹ";
         }
         else {
             t1 = "Không mắc bệnh";
-            t2 = ""
+            t2 = "";
         }
   
         axios.post(`http://localhost:${PORT}/api/ds_benhnhan/`, 
