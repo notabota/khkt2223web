@@ -47,7 +47,7 @@ io.on('connection', (socket) => {
             tuoi: `6`,
             gioitinh: `Nam`,
             chandoan: `${t1}`, 
-            mucdo: '${t2}',
+            mucdo: `${t2}`,
             ketqua: `${data}`
         });
     })
