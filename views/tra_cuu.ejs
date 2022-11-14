@@ -82,7 +82,16 @@
             <div class="contact_Info">
                 <h1 class="heading"></h1>
                 <ul>
-
+                <li class="phone">
+                    <%
+                        String value = users[request.getParameter("id")].ketqua;
+                        int no = Integer.parseInt(value);
+                        <c:choose>
+                           <c:when no > 70> <h1 class="label">Kết quả chẩn đoán: Nguy cơ cao</h1> </c:when> 
+                           <c:when no > 50><h1 class="label">Kết quả chẩn đoán: Nguy cơ trung bình</h1> </c:when> 
+                           <c:otherwise><h1 class="label">Kết quả chẩn đoán: Nguy cơ thấp</h1> </c:otherwise>    
+                        </c:choose>
+                    %>
                     <li class="phone">
                         <h1 class="label">Kết quả chẩn đoán: Nguy cơ thấp</h1>
                     </li>
