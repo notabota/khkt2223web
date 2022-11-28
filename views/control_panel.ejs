@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/style3.css">
+    <title>Admin panel</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="topbar">
+            <div class="logo">
+                <i class="fa fa-list"></i>
+            </div>
+            <div class="search">
+                <!-- <input type="text" name="search" placeholder="search here">
+                <label for="search"><i class="fas fa-search"></i></label> -->
+                <h1>Bảng điều khiển</h1>
+            </div>
+            <i class="fas fa-bell"></i>
+        </div>
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <button  class="tablinks" onclick="openCity(event, 'thongtin')">
+                        <i class="fa fa-user"></i>
+                        <h2>Thông tin</h2>
+                    </button>
+                </li>
+                <li>
+                    <button class="tablinks" onclick="openCity(event, 'thongso')">
+                        <i class="fas fa-chart-line"></i>
+                        <h2>Thông số</h2>
+                    </button>
+                </li>
+                <li>
+                    <button class="tablinks" onclick="openCity(event, 'nhantin')">
+                        <i class="fas fa-comment-dots"></i>
+                        <h2>Nhắn tin</h2>
+                    </button>
+                </li>
+            </ul>
+        </div>
+     <div id="thongtin" class="main">
+        <div class="container">
+
+            <!-- ===== ===== Header/Navbar ===== ===== -->
+            <!-- <header>
+                <div class="brandLogo">
+                    <span>Hồ sơ Bệnh nhân</span>
+                </div>
+            </header> -->
+    
+    
+            <!-- ===== ===== User Main-Profile ===== ===== -->
+            <section class="userProfile card">
+                <div class="profile">
+                    <img src="img/profile.png" alt="profile" width="200px" height="200px">
+                </div>
+            </section>
+    
+    
+            <!-- ===== ===== Work & Skills Section ===== ===== -->
+            <section class="work_skills card">
+    
+                <!-- ===== ===== Work Contaienr ===== ===== -->
+                <div class="work">
+                    <h1 class="heading">Tiểu sử</h1>
+                    <div class="primary">
+                        <h1>Không mắc bệnh</h1>
+                        <h1></h1>
+                    </div>
+                </div>
+            </section>
+    
+    
+            <!-- ===== ===== User Details Sections ===== ===== -->
+            <section class="userDetails card">
+                <div class="userName">
+                    <!-- <div class="user"> -->
+                        <h1 class="heading">Thông tin cơ bản</h1>
+                    <!-- </div> -->
+                    <h1 class="name">Họ và tên: Nguyễn Trần Duy Bảo</h1>
+                    <h1 class="name">Tuổi: 6 tuổi</h1>
+                    <h1 class="name">Giới tính: Nam</h1>
+                    <h1 class="name">Quê quán: Thành phố Hồ Chí Minh</h1>
+                </div>
+    
+            </section>
+    
+    
+            <!-- ===== ===== Timeline & About Sections ===== ===== -->
+            <section class="timeline_about card">
+                <div class="tabs">
+                    <ul>
+                        <li class="timeline">
+                            <!-- <i class="ri-eye-fill ri"></i> -->
+                            <span>Chẩn đoán</span>
+                        </li>
+                        <button data-modal-target="#modal">
+                            <i class="fas fa-info-circle fa-2x"></i>
+                        </button>
+                    </ul>
+                </div>
+    
+                <div class="contact_Info">
+                    <!-- <h1 class="heading"></h1> -->
+                    <ul>
+                    <!-- <li class="phone"> -->
+                                <% if (users[id.id].ketqua < 50) { %> 
+                                <h3 class="label">Kết quả chẩn đoán: Nguy cơ cao </h3>
+                                <% } else if (users[id.id].ketqua >= 50 && users[id.id].ketqua < 70) {  %> 
+                                <h3 class="label">Kết quả chẩn đoán: Nguy cơ trung bình </h3>    
+                                <% } else{ %>
+                                <h3 class="label">Kết quả chẩn đoán: Nguy cơ thấp </h3>
+                                <% } %>
+                     <!-- </li> -->
+    
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <div class="title">Chẩn đoán chi tiết</div>
+                <button data-close-button class="close-button">&times;</button>
+            </div>
+            <div class="modal-body">
+                
+            </div>
+        </div>
+        <div id="overlay"></div>
+    </div>
+    <div id="thongso" class="main">
+        <div class="cards">
+            <div class="card2">
+                <div class="card-content">
+                    <!-- <div class="number">1217</div>
+                    <div class="card-name">Students</div> -->
+                </div>
+                <!-- <div class="icon-box">
+                    <i class="fas fa-user-graduate"></i>
+                </div> -->
+            </div>
+            <button data-modal-target="#modal">Open Modal</button>
+            <div class="modal" id="modal">
+                <div class="modal-header">
+                    <div class="title">Example Modal</div>
+                    <button data-close-button class="close-button">&times;</button>
+                </div>
+                <div class="modal-body">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quod alias ut illo doloremque eum ipsum obcaecati distinctio debitis reiciendis quae quia soluta totam doloribus quos nesciunt necessitatibus, consectetur quisquam accusamus ex, dolorum, dicta vel? Nostrum voluptatem totam, molestiae rem at ad autem dolor ex aperiam. Amet assumenda eos architecto, dolor placeat deserunt voluptatibus tenetur sint officiis perferendis atque! Voluptatem maxime eius eum dolorem dolor exercitationem quis iusto totam! Repudiandae nobis nesciunt sequi iure! Eligendi, eius libero. Ex, repellat sapiente!
+                </div>
+            </div>
+            <div id="overlay"></div>
+            <div class="card">
+                <div class="card-content">
+                    <div class="number">14</div>
+                    <div class="card-name">Bài tập</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-book"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <div class="number">Tốt</div>
+                    <div class="card-name">Đánh giá</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fa fa-check"></i>
+                </div>
+            </div>
+            <div class="card2">
+                <!-- <div class="card-content">
+                    <div class="number">68</div>
+                    <div class="card-name">Employees</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-users"></i>
+                </div> -->
+            </div>
+        </div>
+        <div class="charts">
+            <div class="chart">
+                <h2>Bài tập (7 ngày qua)</h2>
+                <div>
+                    <canvas id="lineChart"></canvas>
+                </div>
+            </div>
+            <div class="chart doughnut-chart">
+                <h2>Employees</h2>
+                <div>
+                    <canvas id="doughnut"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="nhantin" class="main">
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+    <!-- <script src="/chart/chart1.js"></script>
+    <script src="/chart/chart2.js"></script> -->
+    <script src="/js/index.js"></script> 
+</body>
+
+</html>

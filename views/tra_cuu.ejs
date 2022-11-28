@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+
+    <!-- ===== ===== Custom Css ===== ===== -->
+    <link rel="stylesheet" href="/css/style2.css">
+    <link rel="stylesheet" href="responsive.css">
+
+    <!-- ===== ===== Remix Font Icons Cdn ===== ===== -->
+    <link rel="stylesheet" href="fonts/remixicon.css">
+</head>
+
+<body>
+    <!-- ===== ===== Body Main-Background ===== ===== -->
+    <span class="main_bg"></span>
+
+
+    <!-- ===== ===== Main-Container ===== ===== -->
+    <div class="container">
+
+        <!-- ===== ===== Header/Navbar ===== ===== -->
+        <header>
+            <div class="brandLogo">
+                <span>Hồ sơ Bệnh nhân</span>
+            </div>
+        </header>
+
+
+        <!-- ===== ===== User Main-Profile ===== ===== -->
+        <section class="userProfile card">
+            <div class="profile">
+                <img src="img/profile.png" alt="profile" width="200px" height="200px">
+            </div>
+        </section>
+
+
+        <!-- ===== ===== Work & Skills Section ===== ===== -->
+        <section class="work_skills card">
+
+            <!-- ===== ===== Work Contaienr ===== ===== -->
+            <div class="work">
+                <h1 class="heading">Tiểu sử</h1>
+                <div class="primary">
+                    <h1>Không mắc bệnh</h1>
+                    <h1></h1>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===== ===== User Details Sections ===== ===== -->
+        <section class="userDetails card">
+            <div class="userName">
+                <div class="user">
+                    <h1 class="heading">Thông tin cơ bản</h1>
+                </div>
+                <h1 class="name">Họ và tên: Nguyễn Trần Duy Bảo</h1>
+                <h1 class="name">Tuổi: 6 tuổi</h1>
+                <h1 class="name">Giới tính: Nam</h1>
+                <h1 class="name">Quê quán: Thành phố Hồ Chí Minh</h1>
+            </div>
+
+        </section>
+
+
+        <!-- ===== ===== Timeline & About Sections ===== ===== -->
+        <section class="timeline_about card">
+            <div class="tabs">
+                <ul>
+                    <li class="timeline">
+                        <i class="ri-eye-fill ri"></i>
+                        <span>Chẩn đoán</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="contact_Info">
+                <h1 class="heading"></h1>
+                <ul>
+                <li class="phone">
+                            <% if (users[id.id].ketqua < 50) { %> 
+                            <h1 class="label">Kết quả chẩn đoán: Nguy cơ cao </h1>
+                            <% } else if (users[id.id].ketqua >= 50 && users[id.id].ketqua < 70) {  %> 
+                            <h1 class="label">Kết quả chẩn đoán: Nguy cơ trung bình </h1>    
+                            <% } else{ %>
+                            <h1 class="label">Kết quả chẩn đoán: Nguy cơ thấp </h1>
+                            <% } %>
+                 </li>
+
+                </ul>
+                <!-- <section class = "grid_res">
+                    <div class="progress_container">
+                        <div class="circular-progress">
+                            <span class="progress-value">70%</span>
+                        </div>
+                        <span class="text">abcde</span>
+                    </div>
+                    <div class="progress_container">
+                        <div class="circular-progress">
+                            <span class="progress-value">70%</span>
+                        </div>
+                        <span class="text" >abcde</span>
+                    </div>
+                    <div class="progress_container">
+                        <div class="circular-progress">
+                            <span class="progress-value">70%</span>
+                        </div>
+                        <span class="text">abcde</span>
+                    </div>
+                    <div class="progress_container">
+                        <div class="circular-progress">
+                            <span class="progress-value">70%</span>
+                        </div>
+                        <span class="text">abcde</span>
+                    </div>
+                </section> -->
+            </div>
+        </section>
+    </div>
+
+</body>
+
+</html>

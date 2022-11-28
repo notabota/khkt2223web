@@ -1,0 +1,54 @@
+ <!-- form handling -->
+ <form action="/api/ds_benhnhan" method="POST" id="add_user">
+    <div class="new_user">
+        <div class="form-group">
+            <label for="ten" class="text-light">Tên</label>
+            <input type="hidden" name="id" value="">
+            <input type="text" name="ten" value="" placeholder="Nam Khanh dep trai bo doi qua">
+        </div>
+        <div class="form-group">
+            <label for="tuoi" class="text-light">Tuổi</label>
+            <input type="text" name="tuoi" value="" placeholder="69">
+        </div>
+        <div class="form-group">
+            <label for="gioitinh" class="text-light">Giới tính</label>
+            <div class="radio inline">
+                <input type="radio" id="radio-2" name="gioitinh" value="Nam" >
+                <label for="radio-2" class="radio-label">Nam</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-3" name="gioitinh" value="Nữ" >
+                <label for="radio-3" class="radio-label">Nữ</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="chandoan" class="text-light">Chẩn đoán</label>
+            <div class="radio inline">
+                <input type="radio" id="radio-4" name="chandoan" value="Mắc bệnh khó đọc" >
+                <label for="radio-4" class="radio-label">Mắc bệnh khó đọc</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-5" name="chandoan" value="Không mắc bệnh khó đọc" >
+                <label for="radio-5" class="radio-label">Không mắc bệnh khó đọc</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="mucdo" class="text-light">Mức độ</label>
+            <div class="radio inline">
+                <input type="radio" id="radio-6" name="mucdo" value="Nhẹ" >
+                <label for="radio-6" class="radio-label">Nhẹ</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-7" name="mucdo" value="Nặng" >
+                <label for="radio-7" class="radio-label">Nặng</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn text-dark update">Save</button>
+        </div>
+
+    </div>
+</form>
