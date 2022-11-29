@@ -15,7 +15,7 @@
     <div class="container">
         <div class="topbar">
             <div class="logo">
-                <i class="fa fa-list"></i>
+                <i class="fa fa-list" onclick="col_bar()"></i>
             </div>
             <div class="search">
                 <!-- <input type="text" name="search" placeholder="search here">
@@ -27,7 +27,7 @@
         <div class="sidebar">
             <ul>
                 <li>
-                    <button  class="tablinks" onclick="openCity(event, 'thongtin')">
+                    <button  class="tablinks" onclick="openCity(event, 'thongtin')" id="default_open">
                         <i class="fa fa-user"></i>
                         <h2>Thông tin</h2>
                     </button>
@@ -85,7 +85,7 @@
                     <!-- <div class="user"> -->
                         <h1 class="heading">Thông tin cơ bản</h1>
                     <!-- </div> -->
-                    <h1 class="name">Họ và tên: Nguyễn Trần Duy Bảo</h1>
+                    <h1 class="name">Họ và tên: Nguyễn Văn A</h1>
                     <h1 class="name">Tuổi: 6 tuổi</h1>
                     <h1 class="name">Giới tính: Nam</h1>
                     <h1 class="name">Quê quán: Thành phố Hồ Chí Minh</h1>
@@ -100,7 +100,7 @@
                     <ul>
                         <li class="timeline">
                             <!-- <i class="ri-eye-fill ri"></i> -->
-                            <span>Chẩn đoán</span>
+                            <span>Kết quả sàng lọc</span>
                         </li>
                         <button data-modal-target="#modal">
                             <i class="fas fa-info-circle fa-2x"></i>
@@ -113,11 +113,11 @@
                     <ul>
                     <!-- <li class="phone"> -->
                                 <% if (users[id.id].ketqua < 50) { %> 
-                                <h3 class="label">Kết quả chẩn đoán: Nguy cơ cao </h3>
+                                <h3 class="label">Nguy cơ cao </h3>
                                 <% } else if (users[id.id].ketqua >= 50 && users[id.id].ketqua < 70) {  %> 
-                                <h3 class="label">Kết quả chẩn đoán: Nguy cơ trung bình </h3>    
+                                <h3 class="label">Nguy cơ trung bình </h3>    
                                 <% } else{ %>
-                                <h3 class="label">Kết quả chẩn đoán: Nguy cơ thấp </h3>
+                                <h3 class="label">Nguy cơ thấp </h3>
                                 <% } %>
                      <!-- </li> -->
     
@@ -125,16 +125,17 @@
                 </div>
             </section>
         </div>
-        <div class="modal" id="modal">
+        <!-- <div class="modal" id="modal">
             <div class="modal-header">
                 <div class="title">Chẩn đoán chi tiết</div>
                 <button data-close-button class="close-button">&times;</button>
             </div>
             <div class="modal-body">
-                
+                <div class="title">I. Biểu đồ Eye-Tracking</div>
+                <img src="img/eyetrack.png" alt="profile" width="100%" height="100%">
             </div>
         </div>
-        <div id="overlay"></div>
+        <div id="overlay"></div> -->
     </div>
     <div id="thongso" class="main">
         <div class="cards">
@@ -147,16 +148,21 @@
                     <i class="fas fa-user-graduate"></i>
                 </div> -->
             </div>
+
             <button data-modal-target="#modal">Open Modal</button>
+
             <div class="modal" id="modal">
                 <div class="modal-header">
-                    <div class="title">Example Modal</div>
+                    <div class="title" id="modal-title">Example Modal</div>
                     <button data-close-button class="close-button">&times;</button>
                 </div>
-                <div class="modal-body">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quod alias ut illo doloremque eum ipsum obcaecati distinctio debitis reiciendis quae quia soluta totam doloribus quos nesciunt necessitatibus, consectetur quisquam accusamus ex, dolorum, dicta vel? Nostrum voluptatem totam, molestiae rem at ad autem dolor ex aperiam. Amet assumenda eos architecto, dolor placeat deserunt voluptatibus tenetur sint officiis perferendis atque! Voluptatem maxime eius eum dolorem dolor exercitationem quis iusto totam! Repudiandae nobis nesciunt sequi iure! Eligendi, eius libero. Ex, repellat sapiente!
+                <div id="modal-body">
+                    <div class="modal-body-box">Siu</div>
+                    <div class="modal-body-box">Siu</div>
+                    <div class="modal-body-box">Siu</div>
                 </div>
             </div>
+
             <div id="overlay"></div>
             <div class="card">
                 <div class="card-content">
@@ -203,13 +209,65 @@
     </div>
     </div>
     <div id="nhantin" class="main">
-        
+        <div class="chat-bar-collapsible">
+            <div class="content">
+                <button id="chat-button" type="button" class="collapsible">Nguyễn Trần Duy Bảo
+                    <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
+                </button>
+                <div class="full-chat-block">
+                    <!-- Message Container -->
+                    <div class="outer-container">
+                        <div class="chat-container">
+                            <!-- Messages -->
+                            <div id="chatbox">
+                                <h5 id="chat-timestamp"></h5>
+                                <!-- <p id="botStarterMessage" class="botText"><span>Loading...</span></p> -->
+                            </div>
+    
+                            <!-- User input box -->
+                            <div class="chat-bar-input-block">
+                                <div id="userInput">
+                                    <input id="textInput" class="input-box" type="text" name="msg"
+                                        placeholder="Nhấn Enter để gửi tin nhắn">
+                                    <p></p>
+                                </div>
+    
+                                <div class="chat-bar-icons">
+                                    <!-- <i id="chat-icon" style="color: crimson;" class=""
+                                        onclick="heartButton()"></i> -->
+                                    <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send"
+                                        onclick="sendButton()"></i>
+                                </div>
+                            </div>
+                            <div id="chat-bar-bottom">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
     </div>
-
+    <script src="https://kit.fontawesome.com/4cf720d27e.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
     <!-- <script src="/chart/chart1.js"></script>
     <script src="/chart/chart2.js"></script> -->
-    <script src="/js/index.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="/js/index.js"></script>
+    <script type="text/javascript" src="/js/client-dist/socket.io.js"></script>
+    <!-- <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script> -->
+    <script>
+        var socket = io();
+        socket.on('connect', function(data) {
+        });
+        socket.on('web', (data) =>{
+            console.log("web:" + data);
+            let botHtml = '<p class="botText"><span>' + data + '</span></p>';
+            $("#chatbox").append(botHtml);
+        });
+
+    </script>
 </body>
 
 </html>

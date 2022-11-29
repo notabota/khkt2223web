@@ -1,3 +1,5 @@
+// const e = require("express")
+
 const openModalButtons = document.querySelectorAll('[data-modal-target]')
 const closeModalButtons = document.querySelectorAll('[data-close-button]')
 const overlay = document.getElementById('overlay')
@@ -59,8 +61,9 @@ function openCity(evt, cityName) {
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
 }
-document.getElementById('thongtin').focus();
+document.getElementById('default_open').click();
 
+const modal_data = [3, 4, 1, 2, 3, 5, 6];
 var lineCanvas = document.getElementById('lineChart');
 var ctx = lineCanvas.getContext('2d');
 var myChart = new Chart(ctx, {
@@ -69,7 +72,7 @@ var myChart = new Chart(ctx, {
         labels: ['Ngày 1', 'Ngày 2', 'Ngày 3', 'Ngày 4', 'Ngày 5', 'Ngày 6', 'Ngày 7'],
         datasets: [{
             label: 'Số bài tập hoàn thành',
-            data: [3, 4, 1, 2, 3, 5, 6],
+            data: modal_data,
             backgroundColor: [
                 'rgba(85,85,85, 1)'
 
@@ -99,11 +102,12 @@ var myChart = new Chart(ctx, {
 });
 
 lineCanvas.onclick = function(e) {
-    const elts = myChart.getElementsAtXAxis(e);
-    if (elts && elts.length) {
-        // Do something with elts[0]
-        console.log(elts[0]);
-    }
+    const points = myChart.getElementsAtEventForMode(e, 'nearest', { intersect: true }, true);
+    console.log(points[0].index);
+    const modal = document.querySelector('#modal');
+    const modal_title = document.querySelector('#modal-title');
+    modal_title.innerHTML = modal_data[points[0].index];
+    openModal(modal)
 };
 
 var ctx2 = document.getElementById('doughnut').getContext('2d');
@@ -141,6 +145,7 @@ var myChart2 = new Chart(ctx2, {
 // Collapsible
 var coll = document.getElementsByClassName("chat_flowup");
 let time = getTime();
+document.getElementById("chat-timestamp").append(time);
 $("#chat-timestamp").append(time);
 for (let i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", function () {
@@ -211,6 +216,20 @@ function getTime() {
 
 //     document.getElementById("chat-bar-bottom").scrollIntoView(true);
 // }
+
+function col_bar(){
+    let col = document.getElementsByClassName("sidebar")[0].style.width;
+    console.log(col);
+    if (col == "240px"){
+        document.getElementsByClassName("sidebar")[0].style.width = "60px";
+        document.getElementsByClassName("main")[0].style.width = "calc(100% - 60px)";
+    }
+    else {
+        document.getElementsByClassName("sidebar")[0].style.width = "240px";
+        document.getElementsByClassName("main")[0].style.width = "calc(100% - 260px)";
+    }
+
+}
 
 //Gets the text text from the input box and processes it
 function getResponse() {
